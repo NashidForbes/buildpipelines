@@ -57,6 +57,6 @@ public class SomeIntegrationTest {
         }
         Files.write(path.resolve("application.log"), hello.getBytes());
         Thread.sleep(1000);
-        assertEquals(1,1);
+        assertNotNull("Hello variable should not be null.", hello);
     }
 }
