@@ -43,7 +43,8 @@ public class SomeIntegrationTest {
             "2021-08-02 17:05:15.333  INFO 19352 --- [           main] c.j.t.c.CalculatorServiceApplication     : Started CalculatorServiceApplication in 1.397 seconds (JVM running for 1.947)\n";
 
     @Test
-    public void anIntegrationTest() throws InterruptedException, IOException {
+    public void anIntegrationTest() throws InterruptedException, IOException {        
+        System.out.println("Variable size:" + hello.getBytes());
         Path path = Paths.get("./artifacts");
         Files.createDirectories(path);
 
@@ -55,7 +56,6 @@ public class SomeIntegrationTest {
             Files.copy(is, path.resolve("selenium_chrome_recording.mp4"));
         }
         Files.write(path.resolve("application.log"), hello.getBytes());
-        System.out.println("Variable size:" + hello.getBytes());
         Thread.sleep(1000);
         assertEquals(1,1);
     }
