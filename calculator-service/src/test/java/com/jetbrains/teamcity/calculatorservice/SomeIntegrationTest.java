@@ -53,7 +53,9 @@ public class SomeIntegrationTest {
         Files.write(subfolder.resolve("test.txt"), "test".getBytes());
 
         try (InputStream is = SomeIntegrationTest.class.getResourceAsStream("/sample-mp4-file.mp4")) {
-            Files.copy(is, path.resolve("selenium_chrome_recording.mp4"));
+            if(!files.exists(path.resolve("selenium_chrome_recording.mp4"))){
+              Files.copy(is, path.resolve("selenium_chrome_recording.mp4"));
+            }    
         }
         Files.write(path.resolve("application.log"), hello.getBytes());
         Thread.sleep(1000);
