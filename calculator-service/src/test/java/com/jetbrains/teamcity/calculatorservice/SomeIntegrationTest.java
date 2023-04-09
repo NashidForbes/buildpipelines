@@ -55,6 +55,7 @@ public class SomeIntegrationTest {
             Files.copy(is, path.resolve("selenium_chrome_recording.mp4"));
         }
         Files.write(path.resolve("application.log"), hello.getBytes());
+        System.out.println("Variable size:" + hello.getBytes());
         Thread.sleep(1000);
         assertEquals(1,1);
     }
